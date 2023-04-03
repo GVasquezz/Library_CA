@@ -15,6 +15,10 @@ public class Library_CA1 {
      */
     public static void main(String[] args) {
         System.out.println(" EASYYYYYY");
+         System.out.println(" EASYYYYYY");
+          System.out.println(" EASYYYYYY");
+           System.out.println(" EASYYYYYY");
+         
     }
     
 }
