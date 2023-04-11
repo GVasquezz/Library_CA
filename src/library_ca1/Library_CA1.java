@@ -28,10 +28,12 @@ public class Library_CA1 {
                switch(userselected){
                    case 1: 
                        System.out.println("OPTION 1 :TITLE ");
-                       String title = myKB.nextLine();
+                       String title = myKB.nextLine(); // TYPE THE TIPE OF THE TITLE WITH THESE WE CAN CREATE A CLASS TO GET THE DATA OF THE LIST OF TITLES . APPLY THE SAMES WITH ALL
+                       
                        break;
                    case 2: 
-                       System.out.println("OPTION 2 : AUTHOR NAME ");
+                       System.out.println("OPTION 2 : AUTHOR NAME ");// TYPE THE TIPE OF THE AUTHOR WITH THESE WE CAN CREATE A CLASS TO GET THE DATA OF THE LIST OF TITLES
+                       String author = myKB.nextLine();
                    break;
                    
                    case 3 : 
