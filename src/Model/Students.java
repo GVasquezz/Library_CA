@@ -5,6 +5,7 @@
 package Model;
 
 import java.util.ArrayList;
+import Utilities.MyOwnQueue;
 
 /**
  *
@@ -31,7 +32,7 @@ public class Students {
         
         if(!booksBorrowed.isEmpty()){
             String[] arrayQueue = new String[booksBorrowed.size()];
-            arrayQueue = booksBorrowed.getFullQueue();
+            
             for(int i=6; i<arrayQueue.length+6; i++){
                 txt[i] = arrayQueue[i-6];
             }
