@@ -17,15 +17,17 @@ public class Students {
     private String ID;
     private String studentFirstName;
     private String studentLastName;
+    private String nationality;
     private ArrayList<String> booksBorrowed = new ArrayList<String>();
     private String lastBookBorowed = "null"; 
     
     public String[] getStudentArray(){
-        String txt[] = new String[booksBorrowed.size() + 4];
+        String txt[] = new String[booksBorrowed.size() + 5];
         txt[0] = ID;
         txt[1] = studentFirstName;
         txt[2] = studentLastName;
-        txt[3] = booksBorrowed.toString();
+        txt[3] = nationality;
+        txt[4] = booksBorrowed.toString();
         
         if(!booksBorrowed.isEmpty()){
             String[] arrayQueue = new String[booksBorrowed.size()];
