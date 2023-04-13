@@ -8,12 +8,12 @@ package Utilities;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import library_ca1.Books;
-import library_ca1.Readers;
+import Model.Books;
+import Model.Readers;
 
 /**
  *
- * @author allancampos
+ * @author Francisco + Gonzalo
  */
 public interface BookDataInterface {
     

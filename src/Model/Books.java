@@ -1,5 +1,5 @@
 
-package library_ca1;
+package Model;
 
 import Utilities.MyOwnQueue;
 

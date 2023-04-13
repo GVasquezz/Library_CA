@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package library_ca1;
+package Model;
 
 /**
  *
- * @author allancampos
+ * @author Francisco + Gonzalo
  */
 public class Readers {
     private int id;
