@@ -5,6 +5,13 @@
 package Model;
 
 import java.util.Scanner;
+import CSV_FileReader.*;
+import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+
+
 
 /**
  *
@@ -12,13 +19,20 @@ import java.util.Scanner;
  */
 public class CCT_Library {
     
-    private String[] books = {"The Great Gatsby", "To Kill a Mockingbird", "1984"};
+  private String[] books = {"The Great Gatsby", "To Kill a Mockingbird", "1984"};
+    // A METHOD COMES FROM FILE READER.JAVA
     
+  
+   
+   FileReader fl = new FileReader();
+   
+   ArrayList<Readers> readers = fl.loadReaders();
+    Scanner myKB = new Scanner(System.in);
     
     public void displayMenu() {
         System.out.println("Welcome to the Library!");
         System.out.println("Please choose an option:");
-        System.out.println("1. Display all books");
+        System.out.println("1. Display all books"); 
         System.out.println("2. Borrow a book");
         System.out.println("3. Return a book");
         System.out.println("4. Quit");
@@ -29,6 +43,8 @@ public class CCT_Library {
         switch (choice) {
             case 1:
                 displayBooks();
+                fl.sortReadersByName(readers);
+                
                 break;
             case 2:
                 borrowBook();
@@ -49,7 +65,7 @@ public class CCT_Library {
     private void displayBooks() {
         System.out.println("Available books:");
         for (String book : books) {
-            System.out.println("- " + book);
+            System.out.println("" + books);
         }
         displayMenu();
     }
