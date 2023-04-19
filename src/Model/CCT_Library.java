@@ -18,6 +18,7 @@ import library_ca1.Library_CA1;
 
 
 
+
 /**
  *
  * @author Francisco + Gonzalo
@@ -29,7 +30,7 @@ public class CCT_Library{
     
    
     
-  private String[] books = {"The Great Gatsby", "To Kill a Mockingbird", "1984"};
+   private String[] books = {"The Great Gatsby", "To Kill a Mockingbird", "1984"};
     // A METHOD COMES FROM FILE READER.JAVA
    
   
@@ -39,23 +40,16 @@ public class CCT_Library{
       Search search = new Search(); 
     
       
-       
-        
-         
-       
-       Scanner scanner = new Scanner(System.in);
-       
-        
         
         System.out.println("Welcome to the Library!");
         System.out.println("Please choose an option:");
         System.out.println("1. Display all books"); 
-        System.out.println("2. Borrow a book");
+        System.out.println("2. Register a student to borrow a book ");
         System.out.println("3. Return a book");
         System.out.println("4. Quit");
 
-       
-        int choice = scanner.nextInt();
+        Scanner myKB = new Scanner(System.in);
+        int choice = myKB.nextInt();
 
         switch (choice) {
             
@@ -65,7 +59,7 @@ public class CCT_Library{
               System.out.println("All books by title: \n");
                // String title = scanner.nextLine();
                 // System.out.println(search.SBooktitle(myBooks, title));
-                
+               
               //  System.out.println(Data.getCsv(title));
                 // System.out.println(books);
                  displayBooks();
@@ -73,7 +67,10 @@ public class CCT_Library{
             
                 break;
             case 2:
-               // borrowBook();
+                
+                 System.out.println("BORROW BOOKS");
+                 borrowBook();
+               
                 break;
             case 3:
               //  returnBook();
@@ -92,25 +89,32 @@ public class CCT_Library{
    public  void displayBooks() throws FileNotFoundException, IOException {
        
         Data data = new Data();  
+        
        List<Books> books = (List<Books>) data.getAllBooks();
+       
         System.out.println("Available books:");
         System.out.println(books);
         displayMenu();
     }
 
-   private void borrowBook()  throws FileNotFoundException, IOException{
+   public void borrowBook()  throws FileNotFoundException, IOException{
+       
+     
+        
+       Data data = new Data();  
+        
+       List<Books> books = (List<Books>) data.getAllBooks();
         System.out.println("Which book would you like to borrow?");
-
+      
         Scanner scanner = new Scanner(System.in);
         String book = scanner.nextLine();
 
-        if (bookExists(book)) {
-            System.out.println("You have borrowed " + book + ".");
-       } else {
-            System.out.println("Sorry, " + book + " is not available.");
-        }
+         String [] array = {book};
+        System.out.println("You have borrowed  : " +data.booksborrowed(array)  );
+       
 
         displayMenu();
+        
     }
 
     private void returnBook() throws FileNotFoundException, IOException {
@@ -128,7 +132,9 @@ public class CCT_Library{
         displayMenu();
     }
 
-    private boolean bookExists(String book) {
+    public boolean bookExists(String book) {
+     
+        
         for (String b : books) {
             if (b.equals(book)) {
                 return true;

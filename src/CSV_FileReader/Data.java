@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import Model.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 
 
@@ -70,6 +72,19 @@ public class Data {
         }
         //return all books
         return books;
+    }
+        public String booksborrowed(String[] borrows) throws IOException {
+
+        try {
+            BufferedWriter writeBorrow = new BufferedWriter(new FileWriter("borrows.txt", true));
+            writeBorrow.write(borrows[0] + "\n");
+            writeBorrow.close();
+        } catch (IOException e) {
+            System.out.println("Error: make sure the book name is correct");
+            e.printStackTrace();
+        }
+
+        return "Borrow Registered sucessfully";
     }
     
   

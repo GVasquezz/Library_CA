@@ -18,6 +18,7 @@ public class Search {
         for (Books b : book) {
             if (b.getBook_title().equalsIgnoreCase(title)) {
                 System.out.println(b);
+                
                 found = true;
             }
         }
