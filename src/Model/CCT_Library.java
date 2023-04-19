@@ -30,7 +30,7 @@ public class CCT_Library{
     
    
     
-   private String[] books = {"The Great Gatsby", "To Kill a Mockingbird", "1984"};
+   //private String[] books = {"The Great Gatsby", "To Kill a Mockingbird", "1984"};
     // A METHOD COMES FROM FILE READER.JAVA
    
   
@@ -43,15 +43,18 @@ public class CCT_Library{
         
         System.out.println("Welcome to the Library!");
         System.out.println("Please choose an option:");
-        System.out.println("1. Display all books"); 
-        System.out.println("2. Register a student to borrow a book ");
-        System.out.println("3. Return a book");
-        System.out.println("4. Quit");
+        System.out.println("1. Display all books");
+        System.out.println("2. Search a book by title"); 
+        System.out.println("3. Register a student to borrow a book ");
+        System.out.println("4. Return a book");
+        System.out.println("5. Quit");
 
         Scanner myKB = new Scanner(System.in);
-        int choice = myKB.nextInt();
+        int menuChoice = myKB.nextInt();
+        String bookChoice = myKB.nextLine();
+        
 
-        switch (choice) {
+        switch (menuChoice) {
             
            
             case 1:
@@ -67,15 +70,21 @@ public class CCT_Library{
             
                 break;
             case 2:
+                Data bookData = new Data();
+                System.out.println(bookData.toString());
+                //search.SearchBookTitle(bookData., bookChoice );
                 
-                 System.out.println("BORROW BOOKS");
+                
+            case 3:
+                
+                 System.out.println("BORROWED BOOKS");
                  borrowBook();
                
                 break;
-            case 3:
+            case 4:
               //  returnBook();
                 break;
-            case 4:
+            case 5:
                 System.out.println("Thanks for visiting the Library!");
                 break;
             default:
