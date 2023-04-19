@@ -4,9 +4,14 @@
  */
 package library_ca1;
 
-import Model.CCT_Library;
-import java.util.Scanner;
-import static javafx.application.Platform.exit;
+import CSV_FileReader.Data;
+
+import Model.*;
+import java.util.ArrayList;
+
+
+
+
 
 /**
  *
@@ -14,12 +19,21 @@ import static javafx.application.Platform.exit;
  */
 public class Library_CA1 {
 
-    /**
+    /**1
+     *
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
       CCT_Library library = new CCT_Library();
-        library.displayMenu();
+      library.displayMenu();
+      
+      
+      
+      
+      
+      
+         
+        
     }
     
 }

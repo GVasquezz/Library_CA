@@ -1,0 +1,30 @@
+1,The Shock of the New,Robert Hughes,1980,Art
+2,The Story of Art,Ernst Gombrich,1950,Art
+3,Ways of Seeing,John Berger,1972,Art
+4,Lives of the Most Excellent Painters Sculptors and Architects,Giorgio Vasari,1550,Biography
+5,Mythologies,Roland Barthes,1972,Culture
+6,Silent Spring,Rachel Carson,1962,Environment
+7,The Revenge of Gaia,James Lovelock,1979,Environment
+8,The Histories,Herodotus,400,History
+9,The History of England,Thomas Babington Macaulay,1848,History
+10,Postwar,Tony Judt,2005,History
+11,The Life of Samuel Johnson,James Boswell,1791,Biography
+12,The Diaries of Samuel Pepys,Samuel Pepys,1825,Biography
+13,Eminent Victorians,Lytton Strachey,1918,Biography
+14,Goodbye to All That,Robert Graves,1929,Biography
+15,The Autobiography of Alice B Toklas,Gertrude Stein,1933,Biography
+16,Notes on Camp,Susan Sontag,1964,Culture
+17,Orientalism,Edward Said,1978,Culture
+18,Bury My Heart at Wounded Knee,Dee Brown,1970,History
+19,An Eternal Golden Braid,Douglas Hofstadter,1979,Mathematics
+20,On the Origin of Species,Charles Darwin,1859,Science
+21,The Art of War,Sun Tzu,500,Politics
+22,The Prince,Niccolò Machiavelli,1532,Politics
+23,Leviathan,Thomas Hobbes,1651,Politics
+24,The Character of Physical Law,Richard Feynmann,1965,Science
+25,A Brief History of Time,Stephen Hawking,1988,Science
+26,The Book of the City of Ladies,Christine de Pisan,1405,Society
+27,The Feminine Mystique,Betty Friedan,1963,Society
+28,The Travels of Ibn Battuta,Ibn Battuta,1355,Travel
+29,Venice,Jan Morris,1960,Travel
+30,De Profundis,Oscar Wilde,1905,Memoir

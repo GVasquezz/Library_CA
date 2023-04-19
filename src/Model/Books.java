@@ -5,117 +5,62 @@ import Utilities.MyOwnQueue;
 
 
 public class Books {
-    // Creating variables for our Books Class
-    private String ID;
-    private String title;
-    private String authorFirstName;
-    private String authorLastName;
+     private String id;
+    private String author_first_name;
+    private String author_last_name;
+    private String book_title;
     private String genre;
-    private boolean isRented = false;
-    private MyOwnQueue students_queue= new MyOwnQueue();
-    
-    // Constructor for our Book Class 
-    public Books(String ID, String title, String authorFirstName, String authorLastName, String genre, String rentStatus) {
-        this.ID = ID;
-        this.title = title;
-        this.authorFirstName = authorFirstName;
-        this.authorLastName = authorLastName;
-        this.genre = genre;
-        this.isRented = Boolean.parseBoolean(rentStatus);
-    }
-    
-    
-    ///Getters and Setters
 
-    public String getID() {
-        return ID;
+    //getters and setters
+    public String getId() {
+        return id;
     }
 
-    public String getTitle() {
-        return title;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getAuthorFirstName() {
-        return authorFirstName;
+    public String getAuthor_first_name() {
+        return author_first_name;
     }
 
-    public String getAuthorLastName() {
-        return authorLastName;
+    public void setAuthor_first_name(String author_first_name) {
+        this.author_first_name = author_first_name;
+    }
+
+    public String getAuthor_last_name() {
+        return author_last_name;
+    }
+
+    public void setAuthor_last_name(String author_last_name) {
+        this.author_last_name = author_last_name;
+    }
+
+    public String getBook_title() {
+        return book_title;
+    }
+
+    public void setBook_title(String book_title) {
+        this.book_title = book_title;
     }
 
     public String getGenre() {
         return genre;
     }
 
-    public boolean isIsRented() {
-        return isRented;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setAuthorFirstName(String authorFirstName) {
-        this.authorFirstName = authorFirstName;
-    }
-
-    public void setAuthorLastName(String authorLastName) {
-        this.authorLastName = authorLastName;
-    }
-
     public void setGenre(String genre) {
         this.genre = genre;
     }
-
-    public void setIsRented(boolean isRented) {
-        this.isRented = isRented;
+    //print book details
+    @Override
+    public String toString() {
+        return "\n_________________________________________\n"
+                + "ID = " + id + "\n"
+                + "Author first name = " + author_first_name  + "\n"
+                + "Author last name = " + author_last_name  + "\n"
+                + "Book title = " + book_title  + "\n"
+                + "Genre = " + genre + "\n";
     }
     
-    // Creating Array to store book data
-    
-    public String[] getBookArray(){
-        String txt[] = new String[students_queue.size() + 6];
-        txt[0] = ID;
-        txt[1] = authorFirstName;
-        txt[2] = authorLastName;
-        txt[3] = title;
-        txt[4] = genre;
-        txt[5] = String.valueOf(isRented);
-        if(!students_queue.isEmpty()){
-            String[] arrayQueue = new String[students_queue.size()];
-            arrayQueue = students_queue.getFullQueue();
-            for(int i=6; i<arrayQueue.length+6; i++){
-                txt[i] = arrayQueue[i-6];
-            }
-        }
-        return txt;
-    }
-    
-    public void add_Student_To_Queue(String id){
-    this.students_queue.Enqueue(id);
-    }
-   
-    /**
-     * Method that rents the book to the next person in the Queue.
-     * @return it returns the ID of the student who rented the book.
-    */
-    public String Rent_To_Queue(){
-        setIsRented(true);
-        String r = this.students_queue.First();
-        this.students_queue.Dequeue();
-        return r;
-    }
-    
-   public void get_next_in_queue(){
-       System.out.println(students_queue.First());
-   }
-    
-    public String[] get_Waiting_List(){
-        return this.students_queue.getFullQueue();
-    } 
     
 }
