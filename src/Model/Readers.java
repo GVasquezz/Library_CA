@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Model;
 
 /**
@@ -10,58 +6,50 @@ package Model;
  * @author Francisco + Gonzalo
  */
 public class Readers {
+    //Creating attributes fo the Readers Class
     private int id;
     private String name;
     private String address;
-
+    
+    //Constructor
     public Readers(int id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
     }
     
-    /**
-     * @return the id
-     */
+    
+    //Getters and setters
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
+    
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return the name
-     */
+    
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name the name to set
-     */
+    
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @return the address
-     */
+    
     public String getAddress() {
         return address;
     }
 
-    /**
-     * @param address the address to set
-     */
+    
     public void setAddress(String address) {
         this.address = address;
     }
     
+    //Overriden toString method.
     @Override
     public String toString(){
         return "# READER # ID: "+getId()+", Name: "+name+", Address: "+getAddress()+"\n";
