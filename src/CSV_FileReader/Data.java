@@ -4,7 +4,7 @@
  */
 package CSV_FileReader;
 
-import com.opencsv.CSVReader;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,58 +21,74 @@ import java.io.FileWriter;
 
 /**
  *
- * @author Gonzalo Vasquez
+ * @author Gonzalo Vasquez + Francisco Arellano
  */
 public class Data {
     
-    
-    public static BufferedReader getCsv(String nameFile) throws FileNotFoundException {
-        //create file
-        File fileBook = new File(nameFile);
-       BufferedReader br = new BufferedReader(new FileReader(fileBook));
-     return br;
+    //Method that creates a a Book file object and a bufferedReader object
+    public static BufferedReader getCsv(String fileName) throws FileNotFoundException {
+        
+       File bookFile = new File(fileName);
+       BufferedReader br = new BufferedReader(new FileReader(bookFile));
+     
+       return br;
     }
-
+    
+    /**
+     * This method
+     * @return a full list of all books contained in the CVS file and
+     * @throws  java.io.IOException
+     */
     public static List<Books> getAllBooks() throws IOException {
-        //variable of Collection type that contains all books
+        //It creates a list to store all book collection.
         List<Books> books = new ArrayList();
-        //inform the name of csv file to be read
+        //Stores getCsv method in br object.
         BufferedReader br = getCsv("MOCK_DATA.csv");
 
-        //st gets the string of the file
-        String st;
-        //line_file gets the string list to be add to book method
-        String[] line_file = null;
+        //fileString variable on which br will be used.
+        String fileString;
+        //Initializes empty array to store each individual line.
+        String[] file_line = null;
         //skip first line with colluns titles
         br.readLine();
-        //loop to run in all lines not empty
-        while ((st = br.readLine()) != null) {
-            line_file = st.split(",", -1); //splits string to make the list
+        //The loop runs for all lines that are not empty.
+        while ((fileString = br.readLine()) != null) {
+            /**
+             * splits the string with a coma pattern.
+             * Pattern will applied as many times as possible and
+             * the resulting array can be of any size (-1). 
+             */
+            file_line = fileString.split(",", -1); 
+            
             Books book = new Books();
-            book.setId(line_file[0]); //get the first position and add to book class
-            book.setAuthor_first_name(line_file[1]);
-            book.setAuthor_last_name(line_file[2]);
+            book.setId(file_line[0]); //gets the value at first position and sets it to book class.
+            book.setAuthor_first_name(file_line[1]);
+            book.setAuthor_last_name(file_line[2]);
             
 
-            //treats error in case the title name contains "
-            if (st.contains("\"")) {
-                String[] line_one = st.split("\"");
+            //treats error in case the title name contains double quotes
+            if (fileString.contains("\"")) {
+                String[] line_one = fileString.split("\"");
                 String genre = line_one[2].replace(",", "");
                 book.setBook_title(line_one[1]);
                 book.setGenre(genre);
                
 
             } else {
-                book.setBook_title(line_file[3]);
-                book.setGenre(line_file[4]);
+                book.setBook_title(file_line[3]);
+                book.setGenre(file_line[4]);
             }
             
 
             books.add(book);
         }
-        //return all books
+        
         return books;
     }
+    
+    
+    
+        
         public String booksborrowed(String[] borrows) throws IOException {
 
         try {
