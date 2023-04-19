@@ -39,5 +39,15 @@ public class Students {
         }
         return txt;
     }
+    
+    //print book details
+    @Override
+    public String toString() {
+        return "\n_________________________________________\n"
+                + "ID = " + ID + "\n"
+                + "Student's first name = " + studentFirstName  + "\n"
+                + "Student's last name = " + studentLastName  + "\n"
+                + "Nationality = " + nationality  + "\n";
+    }
 }
 
