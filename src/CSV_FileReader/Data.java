@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import Model.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -39,9 +38,9 @@ public class Data {
      * @return a full list of all books contained in the CVS file and
      * @throws  java.io.IOException
      */
-    public static List<Books> getAllBooks() throws IOException {
+    public ArrayList<Books> getAllBooks() throws IOException {
         //It creates a list to store all book collection.
-        List<Books> books = new ArrayList();
+        ArrayList<Books> books = new ArrayList();
         //Stores getCsv method in br object.
         BufferedReader br = getCsv("MOCK_DATA.csv");
 
