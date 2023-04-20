@@ -60,21 +60,22 @@ public class CCT_Library{
             case 1:
                 
               System.out.println("All books by title: \n");
-               // String title = scanner.nextLine();
-                // System.out.println(search.SBooktitle(myBooks, title));
                
-              //  System.out.println(Data.getCsv(title));
-                // System.out.println(books);
                  displayBooks();
                  displayMenu();
             
                 break;
             case 2:
                 Data bookData = new Data();
-                System.out.println(bookData.toString());
-                //search.SearchBookTitle(bookData., bookChoice );
                 
+                System.out.println("Type the book title");
+                String booktitle = myKB.nextLine();
+                System.out.println("The book: " + bookData.getAllBooks() + "was found");
+//                search.SearchBookTitle(bookData.getAllBooks(), booktitle );
                 
+                displayMenu();
+                
+                break;
             case 3:
                 
                  System.out.println("BORROWED BOOKS");
@@ -82,7 +83,7 @@ public class CCT_Library{
                
                 break;
             case 4:
-              //  returnBook();
+//                returnBook();
                 break;
             case 5:
                 System.out.println("Thanks for visiting the Library!");
@@ -94,7 +95,7 @@ public class CCT_Library{
         }
     }
     
-       
+   //This methods returns all available books in the library, and displays the menu again.    
    public  void displayBooks() throws FileNotFoundException, IOException {
        
         Data data = new Data();  
@@ -126,29 +127,29 @@ public class CCT_Library{
         
     }
 
-    private void returnBook() throws FileNotFoundException, IOException {
-        System.out.println("Which book would you like to return?");
-
-       Scanner scanner = new Scanner(System.in);
-        String book = scanner.nextLine();
-
-        if (bookExists(book)) {
-            System.out.println("You have returned " + book + ".");
-        } else {
-           System.out.println("Sorry, " + book + " is not a valid book.");
-        }
-
-        displayMenu();
-    }
-
-    public boolean bookExists(String book) {
-     
-        
-        for (String b : books) {
-            if (b.equals(book)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    private void returnBook() throws FileNotFoundException, IOException {
+//        System.out.println("Which book would you like to return?");
+//
+//       Scanner scanner = new Scanner(System.in);
+//        String book = scanner.nextLine();
+//
+//        if (bookExists(book)) {
+//            System.out.println("You have returned " + book + ".");
+//        } else {
+//           System.out.println("Sorry, " + book + " is not a valid book.");
+//        }
+//
+//        displayMenu();
+//    }
+//
+//    public boolean bookExists(String book) {
+//     
+//        
+//        for (String b : books) {
+//            if (b.equals(book)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 }
