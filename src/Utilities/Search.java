@@ -66,4 +66,59 @@ public class Search {
     return booksByAuthor;
 }
     
+    
+    /**
+     * 
+     * @param studentLastName
+     * @return This method returns a specific Student, searched by Student's last name.
+     * @throws IOException 
+     */
+    public ArrayList<Students> searchStudentLastName(String studentFullName) throws IOException {
+    
+    Data studentsData = new Data();
+    //Loads all Students data into my new myStudents ArrayList
+    ArrayList<Students> myStudents = studentsData.getAllStudents();
+    //Creates an ArrayList of books by author where all books that match author's last name will be stored.
+    ArrayList<Students> studentsByName = new ArrayList<>();
+    
+    
+    for (Students student : myStudents) {
+        if (student.getName().equalsIgnoreCase(studentFullName)) {
+            studentsByName.add(student);
+        }
+    }
+        System.out.println("We have found the following student: " + studentsByName); 
+
+        
+    return studentsByName;
+}
+ 
+    
+    /**
+     * 
+     * @param studentLastName
+     * @return This method returns a specific Student, searched by Student's last name.
+     * @throws IOException 
+     */
+    public ArrayList<Students> searchStudentID(Long ID) throws IOException {
+    
+    Data studentsData = new Data();
+    //Loads all Students data into my new myStudents ArrayList
+    ArrayList<Students> myStudents = studentsData.getAllStudents();
+    //Creates an ArrayList of books by author where all books that match author's last name will be stored.
+    ArrayList<Students> studentsByID = new ArrayList<>();
+    
+    
+    for (Students student : myStudents) {
+        if (student.getId().equals(ID)) {
+            studentsByID.add(student);
+        }
+    }
+        System.out.println(myStudents.get(0).getId());
+        System.out.println("We have found the following student: " + studentsByID); 
+
+        
+    return studentsByID;
+}
+    
 }
