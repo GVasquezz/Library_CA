@@ -26,7 +26,8 @@ import java.util.LinkedList;
  */
 public class Data {
     
-    //Method that creates a a Book file object and a bufferedReader object
+    //This method creates a "Bookfile" object and a bufferedReader "br" object.
+    //This br object will read any string stored in the bookFile object.
     public static BufferedReader getCsv(String fileName) throws FileNotFoundException {
         
        File bookFile = new File(fileName);
@@ -36,8 +37,8 @@ public class Data {
     }
     
     /**
-     * This method
-     * @return a full list of all books contained in the CVS file and
+     * 
+     * @return This method returns a full list of all books contained in the CVS file.
      * @throws  java.io.IOException
      */
     public ArrayList<Books> getAllBooks() throws IOException {
@@ -45,12 +46,12 @@ public class Data {
         ArrayList<Books> books = new ArrayList();
         //Stores getCsv method in br object.
         BufferedReader br = getCsv("MOCK_DATA.csv");
-
+        
         //fileString variable on which br will be used.
         String fileString;
         //Initializes empty array to store each individual line.
         String[] file_line = null;
-        //skip first line with colluns titles
+        //skip first line with attributes row.
         br.readLine();
         //The loop runs for all lines that are not empty.
         while ((fileString = br.readLine()) != null) {
@@ -61,13 +62,15 @@ public class Data {
              */
             file_line = fileString.split(",", -1); 
             
+            //Creates a new book object, and sets its attributes according to the .cvs fields.
             Books book = new Books();
-            book.setId(file_line[0]); //gets the value at first position and sets it to book class.
+            book.setId(file_line[0]); 
             book.setAuthor_first_name(file_line[1]);
             book.setAuthor_last_name(file_line[2]);
             
 
             //treats error in case the title name contains double quotes
+            //and sets the rest of the Books attributes
             if (fileString.contains("\"")) {
                 String[] line_one = fileString.split("\"");
                 String genre = line_one[2].replace(",", "");
