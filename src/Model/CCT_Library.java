@@ -40,12 +40,17 @@ public class CCT_Library{
         System.out.println("Please choose an option:");
         System.out.println("1. Display all books");
         System.out.println("2. Search a book by title"); 
-        System.out.println("3. Register a student to borrow a book ");
-        System.out.println("4. Return a book");
-        System.out.println("5. List all students by alphabetical name");
-        System.out.println("6. List all students by id ");
-        System.out.println("7. Search book by author's last name ");
-        System.out.println("8. Quit");
+        System.out.println("3. Search a book by author's last name ");
+        System.out.println("4. Search a student by last name ");
+        System.out.println("5. Search a student by ID ");
+        System.out.println("6. List all students by alphabetical name ");
+        System.out.println("7. List all students by ID ");
+        System.out.println("8. List all books by title ");
+        System.out.println("9. List all books by ID ");
+        System.out.println("10. Return a book");
+        System.out.println("11. Register a student to borrow a book ");
+        System.out.println("12. Quit");
+        
 
         Scanner myKB = new Scanner(System.in);
         int menuChoice = myKB.nextInt();
@@ -84,14 +89,37 @@ public class CCT_Library{
                 break;
             case 3:
                 
-                 System.out.println("BORROWED BOOKS");
-                 borrowBook();
+                 //Asks for author last name
+                System.out.println("Type author's last name: ");
+                String bookAuthor = myKB.nextLine();
+                
+                search.searchByAuthorLastName(bookAuthor);
+                
+                
+                displayMenu();
                
                 break;
             case 4:
+                 //Asks for student's last name
+                System.out.println("Type student's full name: ");
+                String studentsFullName = myKB.nextLine();
+                
+                search.searchStudentLastName(studentsFullName);
+                
+                
+                displayMenu();
 //                returnBook();
                 break;
-            case 5 :
+            case 5:
+                 //Asks for student's ID
+                System.out.println("Type student's ID: ");
+                String studentsID = myKB.nextLine();
+                
+                search.searchStudentLastName(studentsID);
+                
+                
+                displayMenu();
+            case 6 :
                 
                 sortStudents(students,sort ,"name");
                 displayMenu();
@@ -100,24 +128,33 @@ public class CCT_Library{
                 
                 
                 break;
-            case 6:
+            case 7:
                 sortStudents(students,sort,"id");
                 displayMenu();
                 break;
-            case 7:
-                
-                
-                //Asks for author last name
-                System.out.println("Type author's last name: ");
-                String bookAuthor = myKB.nextLine();
-                
-                search.searchByAuthorLastName(bookAuthor);
+            case 8:
+                //Code here to list books by title
                 
                 
                 displayMenu();
-            case 8:
+                break;
+             case 9:
+                //Code here to list books by ID
+                
+                
+                displayMenu();
+                break;   
+             case 10:
+                //Code here to return a book
+               displayMenu();
+                break;
+             case 11:
+                //Code here to Register a student to borrow a book
+               displayMenu();
+                break;
+            case 12:
                 System.out.println("Thanks for visiting the Library!");
-               
+               System.exit(0);
                 break;
             default:
                 System.out.println("Invalid choice. Please try again.");
