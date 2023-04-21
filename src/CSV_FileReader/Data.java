@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import Model.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.util.Collection;
+import java.util.LinkedList;
 
 
 
@@ -100,6 +102,35 @@ public class Data {
         }
 
         return "Borrow Registered sucessfully";
+    }
+        
+        /////////// STUDENTS 
+        
+        public  ArrayList<Students> getAllStudents() throws IOException {
+        //variable of Collection type that contains all students
+        ArrayList<Students> students = new ArrayList<>();
+        //inform the name of csv file to be read
+        BufferedReader br = getCsv("STUDENTS.csv");
+
+        //st gets the string of the file
+        String st;
+        //line_file gets the string list to be add to Student method
+        String[] line_file = null;
+        //skip first line with colluns titles
+        br.readLine();
+        //loop to run in all lines not empty
+        while ((st = br.readLine()) != null) {
+            line_file = st.split(",", -1); //splits string to make the list
+            Students student = new Students();
+
+            student.setId(Long.valueOf(line_file[0])); //get the first position and add to student class
+            student.setName(line_file[1]); 
+            student.setCountry(line_file[2]);
+
+            students.add(student);
+        }
+        //return all students
+        return students;
     }
     
   

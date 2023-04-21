@@ -13,41 +13,42 @@ import Utilities.MyOwnQueue;
  */
 public class Students {
     
-    // Creating variables for Students Class
-    
-    private String ID;
-    private String studentFirstName;
-    private String studentLastName;
-    private String nationality;
-    private ArrayList<String> booksBorrowed = new ArrayList<String>();
-    private String lastBookBorowed = "null"; 
-    
-    public String[] getStudentArray(){
-        String txt[] = new String[booksBorrowed.size() + 5];
-        txt[0] = ID;
-        txt[1] = studentFirstName;
-        txt[2] = studentLastName;
-        txt[3] = nationality;
-        txt[4] = booksBorrowed.toString();
-        
-        if(!booksBorrowed.isEmpty()){
-            String[] arrayQueue = new String[booksBorrowed.size()];
-            
-            for(int i=6; i<arrayQueue.length+6; i++){
-                txt[i] = arrayQueue[i-6];
-            }
-        }
-        return txt;
+    private Long id;
+    private String name;
+    private String country;
+
+    //getters and setters
+    public Long getId() {
+        return id;
     }
-    
-    //print book details
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    //print student details
     @Override
     public String toString() {
-        return "\n_________________________________________\n"
-                + "ID = " + ID + "\n"
-                + "Student's first name = " + studentFirstName  + "\n"
-                + "Student's last name = " + studentLastName  + "\n"
-                + "Nationality = " + nationality  + "\n";
+        return "\n_______________\n"
+                + "ID = " + id + "\n"
+                + "Name = " + name + "\n"
+                + "Address = " + country;
     }
 }
 

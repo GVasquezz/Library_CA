@@ -8,10 +8,10 @@ import java.util.Scanner;
 import CSV_FileReader.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import Utilities.Search;
+import Utilities.*;
 import java.io.IOException;
 import java.util.List;
-import library_ca1.Library_CA1;
+
 
 
 
@@ -36,7 +36,7 @@ public class CCT_Library{
   
     public void displayMenu() throws FileNotFoundException, IOException {
         
-     
+      
       Search search = new Search(); 
     
       
@@ -47,12 +47,17 @@ public class CCT_Library{
         System.out.println("2. Search a book by title"); 
         System.out.println("3. Register a student to borrow a book ");
         System.out.println("4. Return a book");
-        System.out.println("5. Quit");
+        System.out.println("5. List all students by alphabetical name");
+        System.out.println("6. List all students by id ");
+        System.out.println("7. Quit");
 
         Scanner myKB = new Scanner(System.in);
         int menuChoice = myKB.nextInt();
         String bookChoice = myKB.nextLine();
         
+        Data data = new Data();
+         ArrayList<Students> students = (ArrayList<Students>)data.getAllStudents();
+         Sort sort = new Sort();
 
         switch (menuChoice) {
             
@@ -85,7 +90,20 @@ public class CCT_Library{
             case 4:
 //                returnBook();
                 break;
-            case 5:
+            case 5 :
+                
+                sortStudents(students,sort ,"name");
+                displayMenu();
+                
+                
+                
+                
+                break;
+            case 6:
+                sortStudents(students,sort,"id");
+                displayMenu();
+                break;
+            case 7:
                 System.out.println("Thanks for visiting the Library!");
                 break;
             default:
@@ -101,7 +119,7 @@ public class CCT_Library{
         Data data = new Data();  
         
        List<Books> books = (List<Books>) data.getAllBooks();
-       
+        
         System.out.println("Available books:");
         System.out.println(books);
         displayMenu();
@@ -113,7 +131,7 @@ public class CCT_Library{
         
        Data data = new Data();  
         
-       List<Books> books = (List<Books>) data.getAllBooks();
+       ArrayList<Books> books = (ArrayList<Books>) data.getAllBooks();
         System.out.println("Which book would you like to borrow?");
       
         Scanner scanner = new Scanner(System.in);
@@ -152,4 +170,12 @@ public class CCT_Library{
 //        }
 //        return false;
 //    }
+   
+    public static void sortStudents(ArrayList<Students> students, Sort sort, String column) {
+        int n = students.size();
+        sort = new Sort();
+        sort.sortStudent(students, 0, n - 1, column);
+        Sort.printArrayStudent(students);
+
+    }
 }
