@@ -16,9 +16,6 @@ import java.util.List;
 
 
 
-
-
-
 /**
  *
  * @author Francisco + Gonzalo
@@ -26,18 +23,16 @@ import java.util.List;
 public class CCT_Library{
     
     
-   
     
    
     
-   //private String[] books = {"The Great Gatsby", "To Kill a Mockingbird", "1984"};
+   
     // A METHOD COMES FROM FILE READER.JAVA
    
   
     public void displayMenu() throws FileNotFoundException, IOException {
-        
-      
-      Search search = new Search(); 
+          
+        Search search = new Search(); 
     
       
         
@@ -49,16 +44,21 @@ public class CCT_Library{
         System.out.println("4. Return a book");
         System.out.println("5. List all students by alphabetical name");
         System.out.println("6. List all students by id ");
-        System.out.println("7. Quit");
+        System.out.println("7. Search book by author's last name ");
+        System.out.println("8. Quit");
 
         Scanner myKB = new Scanner(System.in);
         int menuChoice = myKB.nextInt();
         String bookChoice = myKB.nextLine();
         
-        Data data = new Data();
-         ArrayList<Students> students = (ArrayList<Students>)data.getAllStudents();
-         Sort sort = new Sort();
-
+        
+        
+        Data studentData = new Data();
+        
+        ArrayList<Students> students = (ArrayList<Students>)studentData.getAllStudents();
+        Sort sort = new Sort();
+        
+        
         switch (menuChoice) {
             
            
@@ -71,12 +71,13 @@ public class CCT_Library{
             
                 break;
             case 2:
-                Data bookData = new Data();
+               
                 
-                System.out.println("Type the book title");
-                String booktitle = myKB.nextLine();
-                System.out.println("The book: " + bookData.getAllBooks() + "was found");
-//                search.SearchBookTitle(bookData.getAllBooks(), booktitle );
+                //Asks for books title
+                System.out.println("Type book's title: ");
+                String bookTitle = myKB.nextLine();
+                
+                search.searchByBookTitle(bookTitle);
                 
                 displayMenu();
                 
@@ -104,14 +105,32 @@ public class CCT_Library{
                 displayMenu();
                 break;
             case 7:
+                
+                
+                //Asks for author last name
+                System.out.println("Type author's last name: ");
+                String bookAuthor = myKB.nextLine();
+                
+                search.searchByAuthorLastName(bookAuthor);
+                
+                
+                displayMenu();
+            case 8:
                 System.out.println("Thanks for visiting the Library!");
+               
                 break;
             default:
                 System.out.println("Invalid choice. Please try again.");
                 displayMenu();
                 break;
         }
+        
+      
+      
+      
+        
     }
+      
     
    //This methods returns all available books in the library, and displays the menu again.    
    public  void displayBooks() throws FileNotFoundException, IOException {
