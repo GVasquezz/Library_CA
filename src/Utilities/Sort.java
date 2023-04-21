@@ -4,8 +4,9 @@
  */
 package Utilities;
 import Model.*;
-import java.util.List;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Sort {
             return book.getBook_title();
         }
         return book.getAuthor_first_name();
+        
     }
       public Boolean smallString(String str1, String str2) {
         //upercase used, this way the entire word is the same type
@@ -26,6 +28,7 @@ public class Sort {
         return str1.compareTo(str2) <= 0;   
     }
     
+     
     public int partitionBook(ArrayList<Books> arr, int low, int high, String column) {
         
         String pivot = getBookByString(arr.get(high), column);
@@ -47,6 +50,29 @@ public class Sort {
         return i + 1;
 
     }
+    
+    //SORT BOOK
+     public void sortBook(ArrayList<Books> books,int low, int high, String column){ 
+         
+         if(low<high){
+             
+             int pbook = partitionBook(books, low , high , column);
+             
+             sortBook(books, low, pbook - 1, column);
+             sortBook(books,pbook +1 ,high, column);
+         }
+         
+      
+}
+     /// SORT BOOK 
+      public void sortBooks(ArrayList<Books> books, Sort sort, String column) {
+        int n = books.size();
+        sort = new Sort();
+
+        sort.sortBook(books, 0, n - 1, column);
+        Sort.printBooks(books);
+    }
+    
         // THIS METHOD WAS DONE IN CLASS AS EXAMPLE
     public int partitionStudent(ArrayList<Students> arr, int low, int high, String column) {
 
@@ -91,9 +117,16 @@ public class Sort {
             sortStudent(students, pi + 1, high, column);
         }
     }
-     public static void printArrayStudent(List<Students> students) {
+     public static void printArrayStudent(ArrayList<Students> students) {
         for (Students student : students) {
             System.out.println(student.toString());
+        }
+        System.out.println();
+    }
+     
+      public static void printBooks(ArrayList<Books> books) {
+        for (Books book : books) {
+            System.out.println(book.toString());
         }
         System.out.println();
     }
