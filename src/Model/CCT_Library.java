@@ -16,6 +16,7 @@ import java.util.List;
 
 
 
+
 /**
  *
  * @author Francisco + Gonzalo
@@ -61,8 +62,11 @@ public class CCT_Library{
         Data studentData = new Data();
         
         ArrayList<Students> students = (ArrayList<Students>)studentData.getAllStudents();
+        
         Sort sort = new Sort();
         
+        Data bookdata = new Data();
+          ArrayList<Books> books = (ArrayList<Books>) bookdata.getAllBooks();
         
         switch (menuChoice) {
             
@@ -135,6 +139,12 @@ public class CCT_Library{
             case 8:
                 //Code here to list books by title
                 
+            
+         
+             
+                sort.sortBooks(books, sort, "title");
+                
+               
                 
                 displayMenu();
                 break;
@@ -234,4 +244,6 @@ public class CCT_Library{
         Sort.printArrayStudent(students);
 
     }
+    
+     
 }
