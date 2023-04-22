@@ -1,9 +1,11 @@
 package Utilities;
 
+import Model.Readers;
+
 
 public class MyOwnQueue implements ArrayQueue {
     
-    private String[] data;
+    private Readers[] data;
     private int queueSize;
     private int capacity;
     private int front; //Front element index
@@ -11,14 +13,14 @@ public class MyOwnQueue implements ArrayQueue {
 
     public MyOwnQueue() {
         this.capacity = capacity;
-        this.data = new String[capacity];
+        this.data = new Readers[capacity];
         this.queueSize = 0;
         this.front = -1;
         this.back = -1;
     }
 
     @Override
-    public boolean Enqueue(String newElement) {
+    public Boolean Enqueue(Readers newReader) {
         
         if (queueSize >= capacity ) {
             
@@ -30,20 +32,20 @@ public class MyOwnQueue implements ArrayQueue {
         }
         //back pointer increases +1
         back++;
-        data[back] = newElement;
+        data[back] = newReader;
         queueSize++;
         return true;
     }
 
     @Override
-    public String Dequeue() {
+    public Readers Dequeue() {
         
         if(queueSize == 0) {
             return null;
             
         }
         //Saving the element to be removed. 
-        String toReturn = data[front];
+        Readers toReturn = data[front];
         //deletes the element in the front position.
         data[front] = null;
         front++;
@@ -52,7 +54,7 @@ public class MyOwnQueue implements ArrayQueue {
     }
 
     @Override
-    public String First() {
+    public Readers First() {
         if (queueSize == 0) {
             return null;
         }
@@ -60,7 +62,7 @@ public class MyOwnQueue implements ArrayQueue {
     }
 
     @Override
-    public String Last() {
+    public Readers Last() {
         if (queueSize == 0) {
             return null;
         }
@@ -95,14 +97,16 @@ public class MyOwnQueue implements ArrayQueue {
         return toReturn += " ]";
     }
     
-    public String[] getFullQueue(){
-       String[] returnArray = new String[queueSize];
+    public Readers[] getFullQueue(){
+       Readers[] returnArray = new Readers[queueSize];
         for (int i=0; i<=back; i++){
             returnArray[i] = data[i];
             }
         
         return returnArray;
     }
+
+    
     
     
     

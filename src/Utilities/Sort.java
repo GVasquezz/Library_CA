@@ -51,7 +51,7 @@ public class Sort {
 
     }
     
-    //SORT BOOK
+    //SORT BOOK by ID
      public void sortBook(ArrayList<Books> books,int low, int high, String column){ 
          
          if(low<high){
@@ -64,7 +64,7 @@ public class Sort {
          
       
 }
-     /// SORT BOOK 
+     /// SORT BOOK by title
       public void sortBooks(ArrayList<Books> books, Sort sort, String column) {
         int n = books.size();
         sort = new Sort();
