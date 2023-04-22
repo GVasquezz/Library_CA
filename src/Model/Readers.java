@@ -1,22 +1,31 @@
 
 package Model;
 
+
+
 /**
  *
- * @author Francisco + Gonzalo
+ * @author Francisco
  */
 public class Readers {
     //Creating attributes fo the Readers Class
     private int id;
     private String name;
     private String address;
+    private Books borrowedBook;
     
     //Constructor
-    public Readers(int id, String name, String address) {
+    public Readers(int id, String name, String address, Books borrowedBook) {
         this.id = id;
         this.name = name;
         this.address = address;
+        this.borrowedBook = borrowedBook;
     }
+    
+    //Constructor with parameters
+    public Readers() {
+    }
+    
     
     
     //Getters and setters
@@ -47,6 +56,14 @@ public class Readers {
     
     public void setAddress(String address) {
         this.address = address;
+    }
+    
+    public void borrowBook(Books book){
+        this.borrowedBook = book;
+    }
+    
+    public Books getBorrowedBook() {
+        return borrowedBook;
     }
     
     //Overriden toString method.
