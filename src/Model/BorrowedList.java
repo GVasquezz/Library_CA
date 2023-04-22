@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Francisco + Gonzalo
+ * @author Francisco
  */
 public class BorrowedList {
     //Creating variables for the Borrowed list Class.
@@ -58,10 +58,6 @@ public class BorrowedList {
     
     
     
-    //Overiden toString method.
-    @Override
-    public String toString(){
-        return "User name: "+userName+"\n"+"Book: "+bookName+"\n"+"Date it was borrowed: "+borrowDate+"\n";
-    }
+    
     
 }
