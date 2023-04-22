@@ -9,6 +9,8 @@ import CSV_FileReader.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import Utilities.*;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
@@ -37,8 +39,8 @@ public class CCT_Library{
     
       
         
-        System.out.println("Welcome to the Library!");
-        System.out.println("Please choose an option:");
+        System.out.println("Welcome to the Library!" + "\n");
+        System.out.println("Please choose an option:" + "\n");
         System.out.println("1. Display all books");
         System.out.println("2. Search a book by title"); 
         System.out.println("3. Search a book by author's last name ");
@@ -48,8 +50,8 @@ public class CCT_Library{
         System.out.println("7. List all students by ID ");
         System.out.println("8. List all books by title ");
         System.out.println("9. List all books by author ");
-        System.out.println("10. Return a book");
-        System.out.println("11. Register a student to borrow a book ");
+        System.out.println("10. Borrow a book");
+        System.out.println("11. Return a book ");
         System.out.println("12. Quit");
         
 
@@ -87,7 +89,7 @@ public class CCT_Library{
                 String bookTitle = myKB.nextLine();
                 
                 search.searchByBookTitle(bookTitle);
-                
+                System.out.println("\n");
                 displayMenu();
                 
                 break;
@@ -99,7 +101,7 @@ public class CCT_Library{
                 
                 search.searchByAuthorLastName(bookAuthor);
                 
-                
+                System.out.println("\n");
                 displayMenu();
                
                 break;
@@ -110,7 +112,7 @@ public class CCT_Library{
                 
                 search.searchStudentFullName(studentsFullName);
                 
-                
+                System.out.println("\n");
                 displayMenu();
 //                returnBook();
                 break;
@@ -121,11 +123,12 @@ public class CCT_Library{
                 
                 search.searchStudentID(studentsID);
                 
-                
+                System.out.println("\n");
                 displayMenu();
             case 6 :
                 
                 sortStudents(students,sort ,"name");
+                System.out.println("\n");
                 displayMenu();
                 
                 
@@ -134,6 +137,7 @@ public class CCT_Library{
                 break;
             case 7:
                 sortStudents(students,sort,"id");
+                System.out.println("\n");
                 displayMenu();
                 break;
             case 8:
@@ -145,22 +149,69 @@ public class CCT_Library{
                 sort.sortBooks(books, sort, "title");
                 
                
-                
+                System.out.println("\n");
                 displayMenu();
                 break;
              case 9:
                 //Code here to list books by author
                  sort.sortBooks(books, sort, "name");
                 
-                
+                System.out.println("\n");
                 displayMenu();
                 break;   
              case 10:
+                 //Creates a custom made queue class to use as a waiting list. 
+                 MyOwnQueue waitingList = new MyOwnQueue();
+                //Creates reader object
+                 Readers reader = new Readers();
                 //Code here to return a book
+                 System.out.println("Enter Username: ");
+                 reader.setName(myKB.nextLine());
+                 System.out.println("Enter book name: ");
+                 String bookName = myKB.nextLine();
+                 //Creates an arraylist of all the bokos in the library.
+                 Data data = new Data();  
+        
+                 ArrayList<Books> fullBookCollection = (ArrayList<Books>) data.getAllBooks();
+                 
+                 //Checks our full book collection for the book requested using a forEach loop.
+                 //
+                 boolean bookFound = false;
+                 for (Books book : fullBookCollection) {
+                    
+                    if (book.getBook_title().equalsIgnoreCase(bookName)) {
+                    bookFound = true;
+                    fullBookCollection.remove(book);
+                    reader.borrowBook(book);
+                    System.out.println("Book borrowed successfully!");
+                    break;
+                    }
+                }           
+                //If it's not found, reader will be added to the waiting list
+                if (!bookFound) {
+                    
+                    waitingList.Enqueue(reader);
+                    System.out.println("The book is currently unavailable." + reader.getName() +  " has been added to the waiting list." + "\n");
+                    displayMenu();
+                }
+                
+                // write the borrowed list to a file
+                try {
+                    File borrowedFile = new File("borrowed_list.txt");
+                    FileWriter writer = new FileWriter(borrowedFile, true);
+                    writer.write(reader.getName() + " borrowed " + reader.getBorrowedBook().getBook_title() + "\n");
+                    writer.close();
+                 } catch (IOException e) {
+                    e.printStackTrace();
+                    }
+                
+                    
+               System.out.println("\n");  
                displayMenu();
                 break;
              case 11:
-                //Code here to Register a student to borrow a book
+               //Code here to return a book
+               System.out.println("\n");
                displayMenu();
                 break;
             case 12:
@@ -169,6 +220,7 @@ public class CCT_Library{
                 break;
             default:
                 System.out.println("Invalid choice. Please try again.");
+                System.out.println("\n");
                 displayMenu();
                 break;
         }
@@ -187,56 +239,14 @@ public class CCT_Library{
         
        List<Books> books = (List<Books>) data.getAllBooks();
         
-        System.out.println("Available books:");
+        System.out.println("Available books:" + "\n") ;
         System.out.println(books);
         displayMenu();
     }
 
-   public void borrowBook()  throws FileNotFoundException, IOException{
-       
-     
-        
-       Data data = new Data();  
-        
-       ArrayList<Books> books = (ArrayList<Books>) data.getAllBooks();
-        System.out.println("Which book would you like to borrow?");
-      
-        Scanner scanner = new Scanner(System.in);
-        String book = scanner.nextLine();
+ 
 
-         String [] array = {book};
-        System.out.println("You have borrowed  : " +data.booksborrowed(array)  );
-       
 
-        displayMenu();
-        
-    }
-
-//    private void returnBook() throws FileNotFoundException, IOException {
-//        System.out.println("Which book would you like to return?");
-//
-//       Scanner scanner = new Scanner(System.in);
-//        String book = scanner.nextLine();
-//
-//        if (bookExists(book)) {
-//            System.out.println("You have returned " + book + ".");
-//        } else {
-//           System.out.println("Sorry, " + book + " is not a valid book.");
-//        }
-//
-//        displayMenu();
-//    }
-//
-//    public boolean bookExists(String book) {
-//     
-//        
-//        for (String b : books) {
-//            if (b.equals(book)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
    
     public static void sortStudents(ArrayList<Students> students, Sort sort, String column) {
         int n = students.size();
