@@ -108,7 +108,7 @@ public class CCT_Library{
                 System.out.println("Type student's full name: ");
                 String studentsFullName = myKB.nextLine();
                 
-                search.searchStudentLastName(studentsFullName);
+                search.searchStudentFullName(studentsFullName);
                 
                 
                 displayMenu();
@@ -117,9 +117,9 @@ public class CCT_Library{
             case 5:
                  //Asks for student's ID
                 System.out.println("Type student's ID: ");
-                String studentsID = myKB.nextLine();
+                Long studentsID = myKB.nextLong();
                 
-                search.searchStudentLastName(studentsID);
+                search.searchStudentID(studentsID);
                 
                 
                 displayMenu();
