@@ -12,6 +12,7 @@ import Utilities.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.List;
 
 
@@ -44,7 +45,7 @@ public class CCT_Library{
         System.out.println("1. Display all books");
         System.out.println("2. Search a book by title"); 
         System.out.println("3. Search a book by author's last name ");
-        System.out.println("4. Search a student by last name ");
+        System.out.println("4. Search a student by name ");
         System.out.println("5. Search a student by ID ");
         System.out.println("6. List all students by alphabetical name ");
         System.out.println("7. List all students by ID ");
@@ -54,9 +55,26 @@ public class CCT_Library{
         System.out.println("11. Return a book ");
         System.out.println("12. Quit");
         
-
+        
+        //Loop that will runas long as user input is not an integer from 1-12 inclusively.
         Scanner myKB = new Scanner(System.in);
-        int menuChoice = myKB.nextInt();
+        int menuChoice = 0;
+        boolean validInput = false;
+        do{
+            try{
+                
+                menuChoice = myKB.nextInt();
+                validInput = true;
+                
+        
+            }catch (InputMismatchException e) {
+                System.out.println("Wrong input. You must type an integer from 1-12" + "\n");
+                myKB.nextLine();
+                displayMenu();
+            }
+        } while (!validInput);
+        
+        
         String bookChoice = myKB.nextLine();
         
         
@@ -70,7 +88,8 @@ public class CCT_Library{
         Data bookdata = new Data();
           ArrayList<Books> books = (ArrayList<Books>) bookdata.getAllBooks();
         
-        switch (menuChoice) {
+        //Switch statement for menu choice.
+          switch (menuChoice) {
             
            
             case 1:
@@ -160,7 +179,7 @@ public class CCT_Library{
                 displayMenu();
                 break;   
              case 10:
-                 //Creates a custom made queue class to use as a waiting list. 
+                 //Creates a custom made queue object to use as a waiting list. 
                  MyOwnQueue waitingList = new MyOwnQueue();
                 //Creates reader object
                  Readers reader = new Readers();
@@ -182,6 +201,7 @@ public class CCT_Library{
                     if (book.getBook_title().equalsIgnoreCase(bookName)) {
                     bookFound = true;
                     fullBookCollection.remove(book);
+         
                     reader.borrowBook(book);
                     System.out.println("Book borrowed successfully!");
                     break;
@@ -191,7 +211,7 @@ public class CCT_Library{
                 if (!bookFound) {
                     
                     waitingList.Enqueue(reader);
-                    System.out.println("The book is currently unavailable." + reader.getName() +  " has been added to the waiting list." + "\n");
+                    System.out.println("The book " + bookName + " is currently unavailable. " + reader.getName() +  " has been added to the waiting list." + "\n");
                     displayMenu();
                 }
                 
@@ -219,8 +239,8 @@ public class CCT_Library{
                System.exit(0);
                 break;
             default:
-                System.out.println("Invalid choice. Please try again.");
-                System.out.println("\n");
+               System.out.println("Wrong input. You must type an integer from 1-12" + "\n");
+                
                 displayMenu();
                 break;
         }
@@ -258,3 +278,4 @@ public class CCT_Library{
     
      
 }
+
