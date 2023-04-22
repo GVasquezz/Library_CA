@@ -33,7 +33,13 @@ public class Search {
             booksByTitle.add(book);
         }
     }
-        System.out.println("We have found the following book: " + booksByTitle);  
+    //Checks if the array is empty
+    if(booksByTitle.isEmpty()) {
+        System.out.println("Book not found");
+    } else {
+        System.out.println("We have found the following book: " + booksByTitle);
+    }
+          
         
     return booksByTitle;
 }
@@ -61,7 +67,13 @@ public class Search {
             booksByAuthor.add(book);
         }
     }
-        System.out.println("We have found the following book: " + booksByAuthor);  
+    //Checks if the array is empty
+    if(booksByAuthor.isEmpty()) {
+        System.out.println("Book not found");
+    } else {
+        System.out.println("We have found the following book: " + booksByAuthor);
+    }
+          
         
     return booksByAuthor;
 }
@@ -69,11 +81,11 @@ public class Search {
     
     /**
      * 
-     * @param studentLastName
+     * @param studentFullName
      * @return This method returns a specific Student, searched by Student's last name.
      * @throws IOException 
      */
-    public ArrayList<Students> searchStudentLastName(String studentFullName) throws IOException {
+    public ArrayList<Students> searchStudentFullName(String studentFullName) throws IOException {
     
     Data studentsData = new Data();
     //Loads all Students data into my new myStudents ArrayList
@@ -87,7 +99,13 @@ public class Search {
             studentsByName.add(student);
         }
     }
-        System.out.println("We have found the following student: " + studentsByName); 
+    //Checks if the array is empty
+    if(studentsByName.isEmpty()) {
+        System.out.println("student not found");
+    } else {
+        System.out.println("We have found the following student: " + studentsByName);
+    }
+        
 
         
     return studentsByName;
@@ -114,8 +132,14 @@ public class Search {
             studentsByID.add(student);
         }
     }
-        System.out.println(myStudents.get(0).getId());
-        System.out.println("We have found the following student: " + studentsByID); 
+    //Checks if the array is empty
+    if(studentsByID.isEmpty()) {
+        System.out.println("student not found");
+    } else {
+        System.out.println("We have found the following student: " + studentsByID);
+    }
+        
+         
 
         
     return studentsByID;
