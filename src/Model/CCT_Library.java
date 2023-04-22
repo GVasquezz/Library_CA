@@ -47,7 +47,7 @@ public class CCT_Library{
         System.out.println("6. List all students by alphabetical name ");
         System.out.println("7. List all students by ID ");
         System.out.println("8. List all books by title ");
-        System.out.println("9. List all books by ID ");
+        System.out.println("9. List all books by author ");
         System.out.println("10. Return a book");
         System.out.println("11. Register a student to borrow a book ");
         System.out.println("12. Quit");
@@ -149,7 +149,8 @@ public class CCT_Library{
                 displayMenu();
                 break;
              case 9:
-                //Code here to list books by ID
+                //Code here to list books by author
+                 sort.sortBooks(books, sort, "name");
                 
                 
                 displayMenu();

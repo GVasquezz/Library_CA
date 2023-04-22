@@ -45,7 +45,7 @@ public class Students {
     //print student details
     @Override
     public String toString() {
-        return "\n_______________\n"
+        return "\n______\n"
                 + "ID = " + id + "\n"
                 + "Name = " + name + "\n"
                 + "Address = " + country;
