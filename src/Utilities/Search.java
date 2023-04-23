@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Gonzalo Vasquez
+ * @author Francisco Arellano
  */
 public class Search {
     /**
@@ -114,7 +114,7 @@ public class Search {
     
     /**
      * 
-     * @param studentLastName
+     * @param ID
      * @return This method returns a specific Student, searched by Student's last name.
      * @throws IOException 
      */

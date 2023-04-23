@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Model;
 
-import java.util.ArrayList;
-import Utilities.MyOwnQueue;
+
 
 /**
  *
@@ -48,7 +44,7 @@ public class Students {
         return "\n______\n"
                 + "ID = " + id + "\n"
                 + "Name = " + name + "\n"
-                + "Address = " + country;
+                + "Nationality = " + country;
     }
 }
 

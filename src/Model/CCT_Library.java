@@ -31,7 +31,7 @@ public class CCT_Library{
    
     
    
-    // A METHOD COMES FROM FILE READER.JAVA
+    //Method that displays the main menu
    
   
     public void displayMenu() throws FileNotFoundException, IOException {
@@ -56,7 +56,7 @@ public class CCT_Library{
         System.out.println("12. Quit");
         
         
-        //Loop that will runas long as user input is not an integer from 1-12 inclusively.
+        //Validation loop that will run as long as user input is not an integer from 1-12 inclusively.
         Scanner myKB = new Scanner(System.in);
         int menuChoice = 0;
         boolean validInput = false;
@@ -68,6 +68,7 @@ public class CCT_Library{
                 
         
             }catch (InputMismatchException e) {
+                
                 System.out.println("Wrong input. You must type an integer from 1-12" + "\n");
                 myKB.nextLine();
                 displayMenu();
