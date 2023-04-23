@@ -114,6 +114,15 @@ public class Sort {
             sortStudent(students, pi + 1, high, column);
         }
     }
+     
+     
+      public  void sortStudents(ArrayList<Students> students, Sort sort, String column) {
+        int n = students.size();
+        sort = new Sort();
+        sort.sortStudent(students, 0, n - 1, column);
+        Sort.printArrayStudent(students);
+
+    }
      public static void printArrayStudent(ArrayList<Students> students) {
         for (Students student : students) {
             System.out.println(student.toString());

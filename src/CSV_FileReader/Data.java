@@ -25,8 +25,11 @@ import java.io.FileWriter;
  */
 public class Data {
     
-    //This method creates a "Bookfile" object and a bufferedReader "br" object.
-    //This br object will read any string stored in the bookFile object.
+    //This method creates a "file" object and a bufferedReader "br" object.
+    
+    
+    
+    // the object called "br" will read any string stored in the File object.
     public static BufferedReader getCsv(String fileName) throws FileNotFoundException {
         
        File bookFile = new File(fileName);

@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Francisco Arellano
+ * @author Francisco Arellano + Gonzalo Vasquez
  */
 public class Search {
     /**

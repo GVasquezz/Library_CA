@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.InputMismatchException;
-import java.util.List;
+
 
 
 
@@ -27,9 +27,7 @@ import java.util.List;
 public class CCT_Library{
     
     
-    
    
-    
    
     //Method that displays the main menu
    
@@ -134,7 +132,7 @@ public class CCT_Library{
                 
                 System.out.println("\n");
                 displayMenu();
-//                returnBook();
+
                 break;
             case 5:
                  //Asks for student's ID
@@ -147,25 +145,25 @@ public class CCT_Library{
                 displayMenu();
             case 6 :
                 
-                sortStudents(students,sort ,"name");
+             
+                // code here to list students by alphabetical order
+                 sort.sortStudents(students, sort, "name");
                 System.out.println("\n");
                 displayMenu();
                 
-                
-                
+              
                 
                 break;
             case 7:
-                sortStudents(students,sort,"id");
+              // code here to list students by ID
+                sort.sortStudents(students, sort, "id");
                 System.out.println("\n");
                 displayMenu();
                 break;
             case 8:
                 //Code here to list books by title
                 
-            
-         
-             
+                
                 sort.sortBooks(books, sort, "title");
                 
                
@@ -258,7 +256,7 @@ public class CCT_Library{
        
         Data data = new Data();  
         
-       List<Books> books = (List<Books>) data.getAllBooks();
+       ArrayList<Books> books = (ArrayList<Books>) data.getAllBooks();
         
         System.out.println("Available books:" + "\n") ;
         System.out.println(books);
@@ -269,13 +267,7 @@ public class CCT_Library{
 
 
    
-    public static void sortStudents(ArrayList<Students> students, Sort sort, String column) {
-        int n = students.size();
-        sort = new Sort();
-        sort.sortStudent(students, 0, n - 1, column);
-        Sort.printArrayStudent(students);
-
-    }
+   
     
      
 }
